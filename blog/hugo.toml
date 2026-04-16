@@ -1,6 +1,6 @@
 baseURL = "https://mozzipotato.github.io/"
 languageCode = "ko"
-title = "생활의 지혜"
+title = "SupSup 블로그"
 theme = "PaperMod"
 
 defaultContentLanguage = "ko"
@@ -17,12 +17,12 @@ buildDrafts = false
   ShowCodeCopyButtons = true
   ShowToc = true
   TocOpen = true
-  description = "일상 속 유용한 생활 정보와 꿀팁을 공유합니다"
+  description = "이것저것 잡다한 것을 내 맘대로 기록하고 있습니다."
   comments = true
 
   [params.homeInfoParams]
-    Title = "생활의 지혜"
-    Content = "일상 속 유용한 생활 정보, 절약 방법, 정리 수납 꿀팁을 공유합니다."
+    Title = "SupSup 블로그"
+    Content = "이것저것 잡다한 것을 제 맘대로 기록하고 있습니다."
 
   [params.supabase]
     url = "https://lquioaqqayfzrsgiaybd.supabase.co"
