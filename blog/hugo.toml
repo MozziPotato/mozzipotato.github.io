@@ -1,6 +1,6 @@
 baseURL = "https://mozzipotato.github.io/"
 languageCode = "ko"
-title = "SupSup 블로그"
+title = "Human Intelligence"
 theme = "PaperMod"
 
 defaultContentLanguage = "ko"
@@ -22,7 +22,7 @@ buildFuture = true
   comments = true
 
   [params.homeInfoParams]
-    Title = "SupSup 블로그"
+    Title = "Human Intelligence"
     Content = "이것저것 잡다한 것을 제 맘대로 기록하고 있습니다."
 
   [params.supabase]
