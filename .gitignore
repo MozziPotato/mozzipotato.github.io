@@ -4,6 +4,7 @@ __pycache__/
 *.pyc
 .env
 .DS_Store
+prompts/
 blog/public/
 blog/resources/
 blog/.hugo_build.lock
