@@ -6,6 +6,7 @@ theme = "PaperMod"
 defaultContentLanguage = "ko"
 enableRobotsTXT = true
 buildDrafts = false
+buildFuture = true
 
 [params]
   env = "production"
