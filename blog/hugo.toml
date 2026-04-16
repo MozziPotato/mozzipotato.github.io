@@ -1,0 +1,97 @@
+baseURL = "https://mozzipotato.github.io/"
+languageCode = "ko"
+title = "생활의 지혜"
+theme = "PaperMod"
+
+defaultContentLanguage = "ko"
+enableRobotsTXT = true
+buildDrafts = false
+
+[params]
+  env = "production"
+  defaultTheme = "auto"
+  ShowReadingTime = true
+  ShowShareButtons = false
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowToc = true
+  TocOpen = true
+  description = "일상 속 유용한 생활 정보와 꿀팁을 공유합니다"
+  comments = true
+
+  [params.homeInfoParams]
+    Title = "생활의 지혜"
+    Content = "일상 속 유용한 생활 정보, 절약 방법, 정리 수납 꿀팁을 공유합니다."
+
+  [params.supabase]
+    url = "https://lquioaqqayfzrsgiaybd.supabase.co"
+    anonKey = "sb_publishable_h8QHfIxmCF4b8U6myWL7Sg_5pdCGr79"
+
+  [params.profileMode]
+    enabled = false
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "홈"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    identifier = "posts"
+    name = "글 목록"
+    url = "/posts/"
+    weight = 2
+  [[menu.main]]
+    identifier = "categories"
+    name = "카테고리"
+    url = "/categories/"
+    weight = 3
+  [[menu.main]]
+    identifier = "tags"
+    name = "태그"
+    url = "/tags/"
+    weight = 4
+  [[menu.main]]
+    identifier = "search"
+    name = "검색"
+    url = "/search/"
+    weight = 5
+
+  [[menu.footer]]
+    identifier = "privacy"
+    name = "개인정보처리방침"
+    url = "/privacy-policy/"
+    weight = 1
+  [[menu.footer]]
+    identifier = "terms"
+    name = "이용약관"
+    url = "/terms/"
+    weight = 2
+  [[menu.footer]]
+    identifier = "disclaimer"
+    name = "면책조항"
+    url = "/disclaimer/"
+    weight = 3
+  [[menu.footer]]
+    identifier = "about"
+    name = "소개"
+    url = "/about/"
+    weight = 4
+  [[menu.footer]]
+    identifier = "contact"
+    name = "문의"
+    url = "/contact/"
+    weight = 5

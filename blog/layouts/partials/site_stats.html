@@ -1,0 +1,23 @@
+{{- if .IsHome }}
+<div class="site-stats" id="site-stats">
+    <span>👁 총 <span id="total-views">-</span>회</span>
+    <span class="stats-sep">|</span>
+    <span>오늘 <span id="today-views">-</span>회</span>
+</div>
+<script>
+(function() {
+    var url = '{{ site.Params.supabase.url }}';
+    var key = '{{ site.Params.supabase.anonKey }}';
+    if (!url || !key) return;
+    var sb = supabase.createClient(url, key);
+    sb.rpc('get_view_stats').then(function(res) {
+        if (res.data) {
+            document.getElementById('total-views').textContent =
+                Number(res.data.total).toLocaleString();
+            document.getElementById('today-views').textContent =
+                Number(res.data.today).toLocaleString();
+        }
+    }).catch(function() {});
+})();
+</script>
+{{- end }}

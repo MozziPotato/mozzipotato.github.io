@@ -1,0 +1,132 @@
+# Blog Automation System Configuration
+
+# Niche settings
+niche:
+  name: "종합 정보"
+  seed_keywords:
+    - "생활 꿀팁"
+    - "절약 방법"
+    - "정리 수납"
+    - "청소 방법"
+    - "재테크 초보"
+    - "정부 지원금"
+    - "건강 관리"
+    - "트렌드 정보"
+    - "자기계발"
+    - "IT 꿀팁"
+  language: "ko"
+
+# Blog settings
+blog:
+  title: "생활의 지혜"
+  base_url: ""  # GitHub Pages URL (set after repo creation)
+  hugo_dir: "blog"
+  posts_dir: "blog/content/posts"
+
+# Publishing settings
+publishing:
+  posts_per_day: 1
+  publish_time: "06:00"
+  auto_push: true
+  git_remote: "origin"
+  git_branch: "main"
+
+# LLM settings
+llm:
+  outline_model: "claude-haiku-4-5-20251001"
+  writing_model: "claude-sonnet-4-6"
+  keyword_eval_model: "claude-haiku-4-5-20251001"
+  monthly_budget_usd: 30.0
+  max_retries: 3
+
+# Content settings
+content:
+  min_word_count: 1500
+  max_word_count: 2500
+  style: "~요체"
+  keyword_density_min: 3
+  keyword_density_max: 5
+  internal_links: 3
+  min_h2_count: 4
+  max_h2_count: 6
+  faq_count_min: 3
+  faq_count_max: 5
+
+# Keyword research settings
+keyword_research:
+  batch_size: 25
+  min_keywords_buffer: 10
+  autocomplete_suffixes_ko: "ㄱㄴㄷㄹㅁㅂㅅㅇㅈㅊㅋㅌㅍㅎ"
+  autocomplete_suffixes_en: "abcdefghijklmnopqrstuvwxyz"
+
+# Review settings
+review:
+  enabled: true
+  min_overall_score: 70
+  review_model: "claude-sonnet-4-6"
+
+# Image settings
+images:
+  enabled: true
+  provider: "unsplash"
+  cover_image: true
+  body_images: 1
+
+# Intent analysis settings
+intent:
+  enabled: true
+  analysis_model: "claude-haiku-4-5-20251001"
+
+# TV keyword scout settings
+tv_scout:
+  enabled: true
+  programs:
+    - name: "생생정보"
+      channel: "KBS2"
+      time: "18:35"
+      days: ["월", "화", "수", "목", "금"]
+    - name: "6시 내고향"
+      channel: "KBS1"
+      time: "18:00"
+      days: ["월", "화", "수", "목", "금"]
+    - name: "오늘N"
+      channel: "MBC"
+      time: "18:45"
+      days: ["월", "화", "수", "목", "금"]
+    - name: "생활의 달인"
+      channel: "SBS"
+      time: "21:00"
+      days: ["월"]
+    - name: "좋은아침"
+      channel: "SBS"
+      time: "07:00"
+      days: ["월", "화", "수", "목", "금"]
+    - name: "나혼자산다"
+      channel: "MBC"
+      time: "23:10"
+      days: ["금"]
+
+# Trend analysis settings
+trend_analysis:
+  enabled: true
+  naver_datalab:
+    enabled: true
+    period_days: 90
+    time_unit: "date"
+  google_trends:
+    enabled: true
+    timeframe: "today 3-m"
+    geo: "KR"
+  weights:
+    naver: 0.6
+    google: 0.4
+  min_combined_score: 20  # Below this score, keywords are filtered before LLM eval
+
+# Database
+database:
+  path: "data/blog.db"
+
+# Logging
+logging:
+  level: "INFO"
+  file: "logs/app.log"

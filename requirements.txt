@@ -1,0 +1,7 @@
+anthropic>=0.40.0
+pytrends>=4.9.0
+pyyaml>=6.0
+python-slugify>=8.0
+google-api-python-client>=2.100.0
+google-auth-oauthlib>=1.0.0
+requests>=2.31.0

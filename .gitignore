@@ -1,0 +1,9 @@
+data/
+logs/
+__pycache__/
+*.pyc
+.env
+.DS_Store
+blog/public/
+blog/resources/
+blog/.hugo_build.lock

@@ -1,0 +1,24 @@
+{{- if (and (eq .Kind "page") (not (eq .Layout "search"))) }}
+<div class="page-views" id="page-views">
+    <span>👁 <span id="view-count">-</span> 조회</span>
+</div>
+<script>
+(function() {
+    const SUPABASE_URL = '{{ site.Params.supabase.url | default "" }}';
+    const SUPABASE_ANON_KEY = '{{ site.Params.supabase.anonKey | default "" }}';
+
+    if (!SUPABASE_URL || !SUPABASE_ANON_KEY) return;
+
+    const slug = '{{ .RelPermalink }}';
+    const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    sb.rpc('increment_page_view_v2', { page_slug: slug })
+        .then(function(res) {
+            if (res.data !== null) {
+                document.getElementById('view-count').textContent = res.data;
+            }
+        })
+        .catch(function() {});
+})();
+</script>
+{{- end }}

@@ -1,0 +1,19 @@
+다음 아웃라인을 바탕으로 블로그 포스트를 작성해주세요.
+
+## 키워드
+{keyword}
+
+## 아웃라인
+{outline}
+
+## 검색 의도 분석
+{intent_analysis}
+
+## 내부 링크 (본문에 자연스럽게 삽입)
+{internal_links}
+
+## 요구사항
+- 1500-2500자 분량
+- Hugo 마크다운 형식
+- front matter 없이 본문만 작성 (front matter는 별도 생성)
+- 각 H2 섹션을 충실히 작성

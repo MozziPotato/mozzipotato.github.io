@@ -1,0 +1,7 @@
+{{- if site.Menus.footer }}
+<nav class="footer-menu">
+    {{- range site.Menus.footer }}
+    <a href="{{ .URL | absURL }}">{{ .Name }}</a>
+    {{- end }}
+</nav>
+{{- end }}

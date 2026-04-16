@@ -1,0 +1,52 @@
+/* 소제목(H2) 간격 - 모바일 가독성 향상 */
+.post-content h2 {
+    margin-top: 2.5em;
+    margin-bottom: 0.8em;
+}
+
+.post-content h3 {
+    margin-top: 2em;
+    margin-bottom: 0.6em;
+}
+
+/* 첫 번째 H2는 상단 여백 줄임 */
+.post-content h2:first-of-type {
+    margin-top: 1.5em;
+}
+
+/* 푸터 메뉴 링크 */
+.footer-menu {
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+.footer-menu a {
+    color: var(--secondary);
+    margin: 0 8px;
+    text-decoration: none;
+}
+
+.footer-menu a:hover {
+    color: var(--primary);
+}
+
+/* 조회수 표시 */
+.page-views {
+    margin-top: 4px;
+    font-size: 14px;
+    color: var(--secondary);
+}
+
+/* 홈 조회수 통계 */
+.site-stats {
+    text-align: center;
+    padding: 12px 0;
+    font-size: 15px;
+    color: var(--secondary);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 20px;
+}
+.stats-sep {
+    margin: 0 10px;
+    opacity: 0.5;
+}
