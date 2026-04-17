@@ -19,6 +19,7 @@ buildFuture = true
   ShowToc = true
   TocOpen = true
   description = "이것저것 잡다한 것을 내 맘대로 기록하고 있습니다."
+  keywords = ["생활정보", "절약", "재테크", "부동산", "보험", "건강", "육아"]
   comments = true
 
   [params.homeInfoParams]
@@ -38,7 +39,7 @@ buildFuture = true
       unsafe = true
 
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
+  home = ["HTML", "RSS", "JSON", "LLMsTxt"]
 
 [sitemap]
   changefreq = "weekly"
