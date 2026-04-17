@@ -39,6 +39,17 @@ buildFuture = true
     [markup.goldmark.renderer]
       unsafe = true
 
+[mediaTypes]
+  [mediaTypes."text/plain"]
+    suffixes = ["txt"]
+
+[outputFormats]
+  [outputFormats.LLMsTxt]
+    mediaType = "text/plain"
+    baseName = "llms"
+    isPlainText = true
+    notAlternative = true
+
 [outputs]
   home = ["HTML", "RSS", "JSON", "LLMsTxt"]
 
