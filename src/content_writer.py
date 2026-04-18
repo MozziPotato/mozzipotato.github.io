@@ -236,8 +236,8 @@ def generate_post(keyword_id: int, keyword: str,
                 body = _insert_body_image(body, image_data, keyword)
                 logger.info("Body image inserted")
 
-    # Step 6: Build slug and file
-    slug = slugify(outline.get("title", keyword), allow_unicode=True)
+    # Step 6: Build slug and file (slug는 반드시 소문자 — Hugo가 소문자로 변환하므로 일치 필요)
+    slug = slugify(outline.get("title", keyword), allow_unicode=True).lower()
     date_prefix = datetime.now().strftime("%Y%m%d")
     slug = f"{date_prefix}-{slug}"
 
