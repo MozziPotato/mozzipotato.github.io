@@ -49,7 +49,7 @@
 
 {{- if and .IsHome site.Params.homeInfoParams (eq $paginator.PageNumber 1) }}
 {{- partial "home_info.html" . }}
-{{- partial "site_stats.html" . }}
+{{/* site_stats moved to stats_bar.html (shown on all pages) */}}
 {{- end }}
 
 {{- $term := .Data.Term }}

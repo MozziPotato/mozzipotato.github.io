@@ -1,0 +1,38 @@
+<div class="stats-bar" id="stats-bar">
+    <span>총 조회 <strong id="sb-total">-</strong></span>
+    <span class="stats-bar-sep">|</span>
+    <span>오늘 <strong id="sb-today">-</strong></span>
+</div>
+<style>
+.stats-bar {
+    text-align: center;
+    padding: 6px 0;
+    font-size: 0.85rem;
+    color: var(--secondary);
+    border-bottom: 1px solid var(--border);
+    background: var(--entry);
+}
+.stats-bar-sep {
+    margin: 0 8px;
+    opacity: 0.4;
+}
+.stats-bar strong {
+    color: var(--primary);
+}
+</style>
+<script>
+(function() {
+    var url = '{{ site.Params.supabase.url }}';
+    var key = '{{ site.Params.supabase.anonKey }}';
+    if (!url || !key) return;
+    var sb = supabase.createClient(url, key);
+    sb.rpc('get_view_stats').then(function(res) {
+        if (res.data) {
+            document.getElementById('sb-total').textContent =
+                Number(res.data.total).toLocaleString();
+            document.getElementById('sb-today').textContent =
+                Number(res.data.today).toLocaleString();
+        }
+    }).catch(function() {});
+})();
+</script>
