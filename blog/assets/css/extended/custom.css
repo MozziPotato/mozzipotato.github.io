@@ -53,15 +53,16 @@
 
 /* 바로가기 버튼 */
 .link-button {
-    display: inline-block;
-    padding: 12px 24px;
-    margin: 8px 0;
+    display: block;
+    padding: 14px 24px;
+    margin: 10px 0;
     background: var(--primary);
     color: var(--theme) !important;
     border-radius: 8px;
     text-decoration: none !important;
     font-weight: 600;
     font-size: 16px;
+    text-align: center;
     transition: opacity 0.2s, transform 0.1s;
 }
 .link-button:hover {
