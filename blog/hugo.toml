@@ -38,6 +38,12 @@ buildFuture = false
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+    [markup.goldmark.extensions]
+      strikethrough = false
+    [markup.goldmark.extensions.extras.subscript]
+      enable = false
+    [markup.goldmark.extensions.extras.superscript]
+      enable = false
 
 [mediaTypes]
   [mediaTypes."text/plain"]
