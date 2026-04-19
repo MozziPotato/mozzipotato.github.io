@@ -50,3 +50,32 @@
     margin: 0 10px;
     opacity: 0.5;
 }
+
+/* 바로가기 버튼 */
+.link-button {
+    display: inline-block;
+    padding: 12px 24px;
+    margin: 8px 0;
+    background: var(--primary);
+    color: var(--theme) !important;
+    border-radius: 8px;
+    text-decoration: none !important;
+    font-weight: 600;
+    font-size: 16px;
+    transition: opacity 0.2s, transform 0.1s;
+}
+.link-button:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+}
+.link-button:active {
+    transform: translateY(0);
+}
+.link-button-arrow {
+    margin-left: 6px;
+    display: inline-block;
+    transition: transform 0.2s;
+}
+.link-button:hover .link-button-arrow {
+    transform: translateX(3px);
+}
