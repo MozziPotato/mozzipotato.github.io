@@ -65,7 +65,7 @@ jobs:
           set -euo pipefail
           SITEMAP=blog/public/sitemap.xml
           test -f "$SITEMAP" || { echo "::error::sitemap.xml missing"; exit 1; }
-          xmllint --noout "$SITEMAP"
+          python3 -c "import xml.etree.ElementTree as ET; ET.parse('$SITEMAP')"
           LOC_COUNT=$(grep -o '<loc>' "$SITEMAP" | wc -l | tr -d ' ')
           POST_COUNT=$(find blog/content/posts -name '*.md' -not -name '_index.md' | wc -l | tr -d ' ')
           echo "sitemap <loc>: $LOC_COUNT, content posts: $POST_COUNT"
