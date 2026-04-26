@@ -2,6 +2,9 @@
 <meta name="google-site-verification" content="Bc0qrnmlpOvm1P2wRqp-7QJ7ZDdN49ydL95RAIle_Ck" />
 <!-- Naver Search Advisor 소유권 확인 -->
 <meta name="naver-site-verification" content="75af6a422a4eabfc82807330128c88dc9a8ade9d" />
+{{- if eq .Kind "term" }}
+<meta name="robots" content="noindex, follow">
+{{- end }}
 
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4208024076105019"

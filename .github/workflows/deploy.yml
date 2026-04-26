@@ -60,6 +60,25 @@ jobs:
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
 
+      - name: Validate sitemap.xml
+        run: |
+          set -euo pipefail
+          SITEMAP=blog/public/sitemap.xml
+          test -f "$SITEMAP" || { echo "::error::sitemap.xml missing"; exit 1; }
+          xmllint --noout "$SITEMAP"
+          LOC_COUNT=$(grep -o '<loc>' "$SITEMAP" | wc -l | tr -d ' ')
+          POST_COUNT=$(find blog/content/posts -name '*.md' -not -name '_index.md' | wc -l | tr -d ' ')
+          echo "sitemap <loc>: $LOC_COUNT, content posts: $POST_COUNT"
+          if [ "$LOC_COUNT" -lt "$POST_COUNT" ]; then
+            echo "::error::sitemap has fewer URLs ($LOC_COUNT) than posts ($POST_COUNT)"; exit 1
+          fi
+          if grep -oE '<loc>[^<]*/tags/[^<]+/</loc>' "$SITEMAP" >/dev/null; then
+            echo "::error::individual tag (term) pages should be excluded from sitemap"; exit 1
+          fi
+          if grep -q '<loc>https://[^<]*/search/</loc>' "$SITEMAP"; then
+            echo "::error::/search/ should be excluded from sitemap"; exit 1
+          fi
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

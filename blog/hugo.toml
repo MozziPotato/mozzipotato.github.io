@@ -57,7 +57,7 @@ buildFuture = false
     notAlternative = true
 
 [outputs]
-  home = ["HTML", "RSS", "JSON", "LLMsTxt"]
+  home = ["HTML", "RSS", "JSON", "LLMsTxt", "Sitemap"]
 
 [sitemap]
   changefreq = "weekly"

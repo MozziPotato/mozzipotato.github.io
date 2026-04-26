@@ -34,6 +34,9 @@
 ## 포스트 작성 규칙
 - **커버 이미지 중복 금지**: 새 포스트 작성 시, 기존 포스트들의 `cover.image` URL과 중복되지 않는 이미지를 선택할 것. 작성 전 `grep "image:" blog/content/posts/` 로 기존 이미지 목록 확인 필수.
 - **커버 이미지 적합성**: 이미지가 포스트 주제와 관련 있는지 확인 (예: 열차 포스트에 바다 사진 사용 금지)
+- **premium_photo 사용 금지**: Unsplash `premium_photo-` URL은 유료 이미지라 404 발생. 반드시 `photo-` 로 시작하는 무료 이미지만 사용.
+- **이미지 URL 유효성 검증 필수**: 커버 이미지 선택 후 `curl -s -o /dev/null -w "%{http_code}" "<URL>"` 으로 HTTP 200 확인. 200이 아니면 다른 이미지 선택.
+- **이미지 URL 생성(hallucination) 금지**: Unsplash URL을 기억/추측으로 만들지 말 것. Unsplash 사이트에서 실제 이미지 URL을 확인할 것.
 - **바로가기 포스트**: 사이트 제목(H3) 밑에 바로 버튼을 달지 말고, 해당 사이트가 제공하는 핵심 기능 소개를 한 줄 추가한 뒤 버튼을 배치할 것
 - **바로가기 버튼**: `{{</* link-button url="..." text="..." */>}}` shortcode 사용
 
