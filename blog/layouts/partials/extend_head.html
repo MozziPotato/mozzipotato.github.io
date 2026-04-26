@@ -6,6 +6,43 @@
 <meta name="robots" content="noindex, follow">
 {{- end }}
 
+<!-- FAQ Schema (FAQPage JSON-LD) — "자주 묻는 질문" 섹션만 추출 -->
+{{- if .IsPage -}}
+  {{- $content := .Content -}}
+  {{- $parts := split $content "자주 묻는 질문" -}}
+  {{- if gt (len $parts) 1 -}}
+    {{- $faqSection := index $parts 1 -}}
+    {{- $questions := findRE `<h3[^>]*>[^<]+</h3>` $faqSection -}}
+    {{- $answers := findRE `<p>[^<]+</p>` $faqSection -}}
+    {{- if and $questions (ge (len $questions) 2) -}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {{- range $i, $q := $questions -}}
+      {{- if lt $i (len $answers) -}}
+        {{- $a := index $answers $i -}}
+        {{- $qText := replaceRE `<h3[^>]*>` "" $q | replaceRE `</h3>` "" | replaceRE `^Q[\.\d]*\s*` "" -}}
+        {{- $aText := replaceRE `<p>` "" $a | replaceRE `</p>` "" | replaceRE `^A\.\s*` "" -}}
+        {{- if $i }},{{ end }}
+    {
+      "@type": "Question",
+      "name": {{ $qText | plainify }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ $aText | plainify }}
+      }
+    }
+      {{- end -}}
+    {{- end }}
+  ]
+}
+</script>
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4208024076105019"
      crossorigin="anonymous"></script>
