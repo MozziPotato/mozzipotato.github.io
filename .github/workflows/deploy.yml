@@ -4,9 +4,13 @@ on:
   push:
     branches: [main]
   schedule:
-    - cron: '0 0 * * *'   # 매일 UTC 00:00 (KST 09:00)
-    - cron: '0 5 * * *'   # 매일 UTC 05:00 (KST 14:00)
-    - cron: '0 11 * * *'  # 매일 UTC 11:00 (KST 20:00)
+    # SEO 양산 패턴 회피: 정시 회피 + 비대칭 분 + 4시간 단위 6회/일
+    - cron: '7 0 * * *'    # KST 09:07
+    - cron: '23 4 * * *'   # KST 13:23
+    - cron: '41 8 * * *'   # KST 17:41
+    - cron: '13 12 * * *'  # KST 21:13
+    - cron: '57 15 * * *'  # KST 00:57
+    - cron: '34 19 * * *'  # KST 04:34
   workflow_dispatch:
 
 permissions:
