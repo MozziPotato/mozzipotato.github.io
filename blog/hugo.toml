@@ -55,9 +55,13 @@ buildFuture = false
     baseName = "llms"
     isPlainText = true
     notAlternative = true
+  [outputFormats.SitemapAlt]
+    mediaType = "application/xml"
+    baseName = "sitemap-index"
+    notAlternative = true
 
 [outputs]
-  home = ["HTML", "RSS", "JSON", "LLMsTxt", "Sitemap"]
+  home = ["HTML", "RSS", "JSON", "LLMsTxt", "Sitemap", "SitemapAlt"]
 
 [sitemap]
   changefreq = "weekly"
