@@ -83,6 +83,11 @@ jobs:
             echo "::error::/search/ should be excluded from sitemap"; exit 1
           fi
 
+      - name: Mirror sitemap to nested path (GSC cache bypass)
+        run: |
+          mkdir -p blog/public/g
+          cp blog/public/sitemap-index.xml blog/public/g/sitemap.xml
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
